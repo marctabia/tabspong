@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width">
+        <title>Tabs' Pong</title>
+        <script src="libs/phaser.js"></script>
+        <script src="Boot.js"></script>
+        <script src="Preloader.js"></script>
+        <script src="StartMenu.js"></script>
+        <script src="Game.js"></script>
+        <script src="PlayerWin.js"></script>
+        <script src="CpuWin.js"></script>
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                background-color: #000000;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="gameContainer">
+        </div>
+        <script type="text/javascript">
+            window.onload = function() {
+                var game = new Phaser.Game(640, 480, Phaser.AUTO, 'gameContainer');
+                game.state.add('Boot', TabsPong.Boot);
+                game.state.add('Preloader', TabsPong.Preloader);
+                game.state.add('StartMenu', TabsPong.StartMenu);
+                game.state.add('Game', TabsPong.Game);
+                game.state.add('PlayerWin', TabsPong.PlayerWin);
+                game.state.add('CpuWin', TabsPong.CpuWin);
+                game.state.start('Boot');
+            };
+        </script>
+    </body>
+</html>
